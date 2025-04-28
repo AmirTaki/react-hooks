@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../../pages/login/Login"
 import Login from "../../pages/login/Login"
+import { AppContext } from "../../../App";
+import Header from "../header/header";
+import styled from "./Home.module.css"
 
 function Home(){
+
+    const {isLogin} = useContext(AppContext)
     return (
-        <Layout>
+        <div className={styled.wrapperHome}>
+            <Header />
 
-            <div className="content-wrapper">
-                
-                {
-                    false ? <div> شما وارد شدید </div> :  <Login />
-                }    
+
+            <div className={styled.wrappersHome}>
+            <Layout>
+
+                <div className="content-wrapper">
+                    
+                    {
+                        isLogin ? <div> شما وارد شدید </div> :  <Login />
+                    }    
+                </div>
+
+            </Layout>
             </div>
-
-        </Layout>
+                
+        </div>
+      
     )
 }
 

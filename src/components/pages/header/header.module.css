@@ -1,0 +1,32 @@
+header {
+    /* justify-content: center; */
+    width: 100%;
+
+    display: flex;
+    padding: 20px 50px;
+    margin: 0 10px;
+}
+
+div {
+    display: flex;
+    justify-content: end;
+   
+    align-items: center; 
+}
+
+li {
+    
+    float:right;
+    list-style-type: none;
+}
+li a{
+
+    text-decoration: none;
+}
+
+button {
+    background-color: rgb(249, 249, 249);
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+}
