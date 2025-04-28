@@ -1,31 +1,94 @@
 
 import './App.css';
-import { Route,Routes } from 'react-router-dom';
-import Home from "./components/pages/home/Home"
-import Article from "./components/pages/articles/Articles"
-import { createContext, useState } from 'react';
+
+import {  useState } from 'react';
 
 
-export const AppContext = createContext(null)
 
 function App() {
+
+  const [state, setState] = useState("test");
+
+  // console.log(`state : ${state}` )
+
+  let name = "amir";
+
+
+  // -----------------------------------------------------
+
+  const [stateObjest, setStateObject] = useState ({
+    name : "amir",
+    age : 28
+  })
+
+ 
+  // console.log(`stateObjest : ${stateObjest.name} ${stateObjest.age}` )
+
+ 
+ 
+  const handleChangeName = ()=>{
+    name = "alpha"  
+    setState ("alpha")  
   
-   const [isLogin, setIsLogin] = useState (false);
+  }
+
+
+  const handelObject = () =>{
+    setStateObject ((prevState)=>({
+      ...prevState,
+      age : 30
+    }))
+    
+  }
+
+// -------------------------------------------------------
+
+
+  const [satateF, setStateF] = useState(1)
+
+  console.log(`stataF_1 :  ${satateF}`)
+
+  const handle = () =>{
+    setStateF(2)
+    console.log(`stataF_2:  ${satateF}`)
+
+  }
 
   return (
     <div className="App">
-      <AppContext.Provider value = {{isLogin}}>
-        <Routes>
-      
-          <Route path = "/" element = {<Home />} /> 
-          <Route path = "/articles" element = {<Article />} />
-        </Routes>
+  
+        <button onClick={handleChangeName}>
+          Click
+        </button>
+    
+        <br></br>
+        
+        {state}
+        
+        <br></br>
+        
+        {name}
+    
+        <hr></hr>
+        
+        <p>object</p>
+        
+        <button onClick={handelObject}>Click</button>
 
-      </AppContext.Provider>
-    
+        <br></br>
+        
+        {stateObjest.age}
       
-    
-    
+        <hr></hr>
+        
+        <p>console log satat</p>
+        
+        <button onClick={handle}>Click</button>
+
+        <br></br>
+        
+        {satateF}
+      
 
     </div>
   );
